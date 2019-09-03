@@ -2,11 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const CardMakerUserDiv = styled.div`
-    border: 1px solid black;
     width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: cyan;
+    border-radius: 20px;
 `
 
 const UserImg = styled.img`

@@ -2,11 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 const CardMakerFollowerDiv = styled.div`
-    border: 1px solid black;
     width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: lightpink;
+    border-radius: 20px;
+    margin-top: 10px;
 `
 
 const FollowerImg = styled.img`
