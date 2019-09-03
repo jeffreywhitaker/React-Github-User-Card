@@ -3,7 +3,15 @@ import styled from 'styled-components'
 
 const CardMakerFollowerDiv = styled.div`
     border: 1px solid black;
-    width: 700px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const FollowerImg = styled.img`
+    width: 200px;
+    border-radius: 20px;
 `
 
 
@@ -15,10 +23,10 @@ export default class CardMakerUser extends React.Component {
         return (
             <CardMakerFollowerDiv>
                 <h3>{this.props.followerData.name}</h3>
-                <img alt="user" src={this.props.followerData.avatar_url}/>
+                <FollowerImg alt="user" src={this.props.followerData.avatar_url}/>
                 <span>{this.props.followerData.bio}</span>
                 <p>Login: {this.props.followerData.login}</p>
-                <p>{this.props.followerData.followers} followers</p>
+                <p>URL: {this.props.followerData.url}</p>
                 <p></p>
             </CardMakerFollowerDiv>
         )

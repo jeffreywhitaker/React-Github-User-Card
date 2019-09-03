@@ -1,8 +1,15 @@
 import React from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 
 import CardMakerUser from './CardMakerUser'
 import CardMakerFollowers from './CardMakerFollowers'
+
+const CardListSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
 export default class CardList extends React.Component {
     constructor() {
@@ -17,25 +24,21 @@ export default class CardList extends React.Component {
                 console.log(res)
                 this.setState({ userCard: res.data})
             })
-            // .then(res => res.json())
-            // .then(res => this.setState({ userCard: res }))
         axios.get(`https://api.github.com/users/${inputUserName}/followers`)
             .then( (res) => {
                 console.log(res)
                 this.setState({ followerCards: res.data})
             })
-            // .then(res => res.json())
-            // .then(res => this.setState({ followerCards: res }))
     }
 
     render() {
         return (
-            <section className='cardList'>
+            <CardListSection className='cardList'>
                 <CardMakerUser userData={this.state.userCard} />
                 {this.state.followerCards.map( (follower) => {
-                    return <CardMakerFollowers followerData={follower}/>
+                    return <CardMakerFollowers followerData={follower} key={follower.id}/>
                 })}               
-            </section>
+            </CardListSection>
         )
     }
 }
